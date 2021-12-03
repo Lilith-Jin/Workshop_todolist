@@ -6,13 +6,18 @@ document.addEventListener("DOMContentLoaded",()=>{
   const click = document.querySelector("li")
     // console.log(aa);
     allclick.addEventListener("click",(e)=>{
-      // console.log(e.target);
-      if(e.target && e.target.nodeName =="LI")
-        
-       {e.target.classList.add("checked");}
-        
-      // else(e.target.classList == "checked");
-      //   e.target.classList.remove("checked");
-    // click.classList.add("checked");
+      const event = e.target
+      console.log(e.target);//點擊事件
+      console.log(e.target.nodeName);//節點名稱
+      if(event && event.nodeName =="LI"&& event.className == "checked"){
+        event.classList.remove("checked");
+        } 
+          else {event.classList.add("checked")
+        };
+    //2.點擊 x 刪除任務
+    //點擊 x 可移除任務
+      if (event.nodeName = "SPAN"){
+        event.parentNode.remove()
+      }
   })
 })
